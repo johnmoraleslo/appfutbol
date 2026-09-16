@@ -12,6 +12,11 @@ interface FootballApi {
         @Query("l") league: String = "Spanish La Liga"
     ): TeamResponse
 
+    @GET("searchteams.php")
+    suspend fun searchTeams(
+        @Query("t") name: String
+    ): TeamResponse
+
     @GET("lookupteam.php")
     suspend fun getTeamById(
         @Query("id") id: Int
